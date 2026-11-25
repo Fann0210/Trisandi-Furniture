@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalkulator Estimasi &amp; Konsultasi | Trisandi Furniture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="estimasi">
+  <header class="header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">TF</span>
+        <div>
+          <strong>TRISANDI</strong>
+          <small>FURNITURE &amp; INTERIOR</small>
+        </div>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Beranda</a>
+        <a href="proyek.html">Proyek &amp; Desain</a>
+        <a href="estimasi.html" class="active">Hitung Estimasi</a>
+        <a href="testimoni.html">Testimoni &amp; Kirim</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="proyek.html" class="btn btn-outline btn-sm header-cta">Lihat Proyek</a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Buka Menu">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-inner">
+      <a href="index.html">Beranda</a>
+      <a href="proyek.html">Proyek &amp; Desain</a>
+      <a href="estimasi.html" class="active">Hitung Estimasi</a>
+      <a href="testimoni.html">Testimoni &amp; Kirim</a>
+      <a href="proyek.html" class="btn btn-outline btn-sm" style="margin-top:0.35rem;">Lihat Proyek</a>
+    </div>
+  </div>
+
+  <section class="page-banner">
+    <div class="container">
+      <span class="tag">Simulasi &amp; Order</span>
+      <h1>Kalkulator Meter Lari &amp; Konsultasi WA</h1>
+      <p>Hitung gambaran biaya awal per meter lari lalu kirim detailnya langsung ke WhatsApp Trisandi Furniture.</p>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container split-panel">
+      <div class="box-white">
+        <h2>Kalkulator Estimasi Meter Lari</h2>
+        <p class="est-summary" style="color: var(--muted);">Estimasi kasar awal sebelum survei lokasi &amp; finalisasi desain.</p>
+
+        <div class="field">
+          <label for="calcItem">Jenis Item</label>
+          <select id="calcItem"></select>
+        </div>
+
+        <div class="field">
+          <label for="calcTier">Paket Bahan &amp; Finishing</label>
+          <select id="calcTier">
+            <option value="standard">Standar (Multiplek + HPL Standar)</option>
+            <option value="pro">Favorit (Multiplek + HPL Motif + Slow Motion)</option>
+            <option value="premium">Premium / Detail Khusus</option>
+          </select>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="calcLength">Panjang / Meter Lari (m')</label>
+            <input type="number" id="calcLength" min="0.5" max="50" step="0.5" value="2.5" />
+          </div>
+          <div class="field">
+            <label for="calcUnits">Jumlah Unit</label>
+            <input type="number" id="calcUnits" min="1" max="20" step="1" value="1" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="check-row">
+            <input type="checkbox" id="calcLed" />
+            <span>Tambah LED Strip / aksen khusus (+Rp 250.000 / unit)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="box-dark">
+        <span class="tag">Hasil Estimasi Awal</span>
+        <div id="calcRateText" style="font-size: 0.88rem; color: #cbd5e1;">-</div>
+        <div class="est-amount" id="calcTotalText">Rp 0</div>
+        <p class="est-summary" id="calcDescText">-</p>
+
+        <div class="est-meta">
+          <div><span>Total Meter Lari</span><strong id="calcMetersText">0 m'</strong></div>
+          <div><span>Ilustrasi DP (30%)</span><strong id="calcDpText">Rp 0</strong></div>
+        </div>
+
+        <button type="button" class="btn btn-light btn-full" id="sendCalcWa">
+          Kirim Hasil Estimasi ke WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split-panel">
+      <div>
+        <span class="tag">Form Detail Ruangan</span>
+        <h2>Punya Ukuran atau Foto Referensi Sendiri?</h2>
+        <p style="color: var(--muted); margin-top: 0.5rem;">
+          Lengkapi form di samping untuk menjadwalkan konsultasi atau survei (Tasikmalaya &amp; sekitarnya, serta pengiriman ke seluruh Indonesia).
+        </p>
+      </div>
+
+      <form class="box-white" id="waDetailForm">
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="namaKlien">Nama</label>
+            <input type="text" id="namaKlien" placeholder="Nama Anda" required />
+          </div>
+          <div class="field">
+            <label for="kotaKlien">Kota / Lokasi</label>
+            <input type="text" id="kotaKlien" placeholder="Contoh: Tasikmalaya" required />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="field">
+            <label for="jenisKebutuhan">Kebutuhan Custom</label>
+            <select id="jenisKebutuhan">
+              <option value="Kitchen Set & Mini Bar">Kitchen Set &amp; Mini Bar</option>
+              <option value="Backdrop TV & Wallboard">Backdrop TV &amp; Wallboard</option>
+              <option value="Wardrobe / Lemari Custom">Wardrobe / Lemari Custom</option>
+              <option value="Meja Resepsionis / Kantor">Meja Resepsionis / Kantor</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ukuranKlien">Perkiraan Ukuran</label>
+            <input type="text" id="ukuranKlien" placeholder="Contoh: 3m x 2.5m" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="catatanKlien">Catatan Desain / Bahan</label>
+          <textarea id="catatanKlien" rows="3" placeholder="Tulis konsep atau bahan yang diinginkan..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Kirim ke WhatsApp Admin</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Trisandi Furniture</h4>
+          <p>Pabrik mebel dan interior custom di Tasikmalaya, melayani pengiriman ke seluruh Indonesia.</p>
+        </div>
+        <div>
+          <h4>Halaman</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="proyek.html">Proyek &amp; Desain</a></li>
+            <li><a href="estimasi.html">Kalkulator Estimasi</a></li>
+            <li><a href="testimoni.html">Testimoni &amp; Pengiriman</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <ul>
+            <li>WA: 0857-9372-2634</li>
+            <li>IG: @trisandi.furniture</li>
+            <li>TikTok: @trisandi_furniture</li>
+            <li>Lokasi: Tasikmalaya, Jawa Barat</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Trisandi Furniture</span>
+        <span>Custom Interior &amp; Furniture</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
